@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("NodeJs Back Works");
 });
 
 //oute back des requetes appartenant a user
