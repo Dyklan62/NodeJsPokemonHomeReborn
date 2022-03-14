@@ -1,10 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const UserApi = require("./Routes/user.routes");
-const PokemonApi = require("./Routes/pokemon.routes");
+const UserApi = require("./src/Routes/user.routes");
+const PokemonApi = require("./src/Routes/pokemon.routes");
 
 const app = express();
-const port = 8100;
+const config = require("./config.js");
+
+console.log(`NODE_ENV=${config.NODE_ENV}`);
 
 app.use(bodyParser.json());
 
@@ -22,7 +24,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("NodeJs Back Works");
+  res.send("NodeJs Back Works, env: " + config.NODE_ENV);
 });
 
 //oute back des requetes appartenant a user
@@ -30,6 +32,6 @@ app.use("/api/user", UserApi);
 //route back des requetes appartenant aux pokemon
 app.use("/api/pokemon", PokemonApi);
 
-app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`);
+app.listen(config.PORT, () => {
+  console.log(`App listening at http://localhost:${config.PORT}`);
 });

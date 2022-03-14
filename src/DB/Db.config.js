@@ -1,6 +1,8 @@
+const { HOST, USER, PASSWORD, DBHOST, DB } = require("../../config");
+
 module.exports = {
-  HOST: "localhost",
-  USER: "root",
-  PASSWORD: "root",
-  DB: "PokemonHome",
+  HOST: DBHOST,
+  USER: USER,
+  PASSWORD: PASSWORD,
+  DB: DB,
 };
